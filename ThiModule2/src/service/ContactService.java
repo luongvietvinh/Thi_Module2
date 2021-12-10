@@ -5,6 +5,7 @@ import model.Contact;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ContactService {
 
@@ -41,8 +42,15 @@ public class ContactService {
     }
 
     public void deleteByPhoneNumber(String name) {
-        listContact.remove(findByName(name));
-        System.out.println("xóa thành công");
+        System.out.println(" nhap 'yes' de xoa, nhap phim bat ky de quay lai menu");
+        String delete = checkName();
+        if (delete.equalsIgnoreCase("yes")){
+            listContact.remove(findByName(name));
+            System.out.println("xóa thành công");
+        }else {
+            return;
+        }
+
     }
 
     public int findByName(String name) {
@@ -61,5 +69,23 @@ public class ContactService {
             }
         }
     }
+
+    public String checkName() {
+        Scanner scanner = new Scanner(System.in);
+        String name = "";
+        while (true) {
+
+            name = scanner.nextLine();
+            Pattern p = Pattern.compile("^\\pL+[\\pL\\pZ\\pP ]{0,}$");
+            if (p.matcher(name).find()) {
+//                System.out.println("email la : " + name + "\n" + "----------------------");
+                break;
+            } else {
+                System.err.println("                          ︻╦╤─ ҉ – – - -            ko đc nhập số");
+            }
+        }
+        return name;
+    }
+
 
 }

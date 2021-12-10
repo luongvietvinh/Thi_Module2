@@ -1,3 +1,0 @@
-0 , 2 , null , vinh , nam , 0 , 0909130507 , ha tay 
-0 , son , null , 0909130507 , ha noi , 0 , son dang , son 
-5 , vinhnn , nam , 0909090909 , hanoi , 27 , luongvinh@gmail.com , vinhluong 
