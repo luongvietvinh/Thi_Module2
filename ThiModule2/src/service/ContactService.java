@@ -41,12 +41,20 @@ public class ContactService {
         System.out.println("sửa thành công");
     }
 
-    public void deleteByPhoneNumber(String name) {
-        System.out.println(" nhap 'yes' de xoa, nhap phim bat ky de quay lai menu");
+    public void deleteByPhoneNumber(String phoneNumber) {
+        System.out.println(" nhap 'yes' de xoa, " +
+                "" +
+                "nhap phim bat ky de quay lai menu");
         String delete = checkName();
         if (delete.equalsIgnoreCase("yes")){
-            listContact.remove(findByName(name));
-            System.out.println("xóa thành công");
+            for (int i = 0; i < listContact.size(); i++) {
+                if (delete.equals(listContact.get(i).getPhoneNumber())){
+                    listContact.remove(findByName(phoneNumber));
+                    System.out.println("xóa thành công");
+                }
+                System.err.println("ko tim thay so dien thoai moi chon lai");
+            }
+
         }else {
             return;
         }
@@ -61,7 +69,6 @@ public class ContactService {
         }
         return -1;
     }
-
     public void searchByName(String name) {
         for (int i = 0; i < listContact.size(); i++) {
             if (name.equals(listContact.get(i).getName())){

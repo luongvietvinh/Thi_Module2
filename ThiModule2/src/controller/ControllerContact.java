@@ -29,7 +29,8 @@ public class ControllerContact {
                                 contactService.addList(viewContact.menuAddNguoiDung());
                                 break;
                             case 3:
-                                return;
+                                controllerContact();
+                                break;
                         }
 
                         break;

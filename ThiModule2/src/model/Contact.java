@@ -98,7 +98,7 @@ public class Contact {
     @Override
     public String toString() {
         return
-                groop +
+               "ten nhom" +  groop +
                         " , " + name + " , "+  gender +
                         " , " + phoneNumber + " , "+ address +
                         " , " + birthDay + " , "+ email +
